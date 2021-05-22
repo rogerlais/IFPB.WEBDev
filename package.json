@@ -1,0 +1,23 @@
+{
+  "name": "IFPB.WEBDev",
+  "version": "1.0.0",
+  "description": "Repositório do aluno Rogerlais Andrade e Silva para a cadeira de Desenvolvimento WEB",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rogerlais/IFPB.WEBDev.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rogerlais/IFPB.WEBDev/issues"
+  },
+  "homepage": "https://github.com/rogerlais/IFPB.WEBDev#readme",
+  "dependencies": {
+    "bootstrap": "^5.0.1"
+  }
+}
