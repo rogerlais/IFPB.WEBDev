@@ -1,0 +1,42 @@
+{
+	// Use IntelliSense to learn about possible attributes.
+	// Hover to view descriptions of existing attributes.
+	// For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+	"version": "0.2.0",
+	"configurations": [
+		{
+			//!Lembrar de chamar o chrome com:
+			//google-chrome --remote-debugging-port=9222&
+			//!Lembrar de subir o serviço com:
+			"name": "Launch Chrome",
+			"request": "launch",
+			"type": "pwa-chrome",
+			"url": "http://localhost:3001",
+			"webRoot": "${workspaceFolder}/frontend/"
+		},
+		{
+			"type": "pwa-node",
+			"request": "launch",
+			"cwd": "${workspaceFolder}/",
+			"name": "Launch Program",
+			"skipFiles": [
+				"<node_internals>/**"
+			],
+			"program": "${workspaceFolder}/backend/server.js",
+			"outFiles": [
+				"${workspaceFolder}/lab06/**/*.js"
+			]
+		}
+	],
+	"compounds": [
+		{
+			//!Notas:
+			//https://docs.microsoft.com/en-us/azure/developer/javascript/how-to/with-visual-studio-code/install-run-debug-nodejs
+			"name": "Full-Stack",
+			"configurations": [
+				"Launch Program",
+				"Launch Chrome"
+			]
+		}
+	]
+}

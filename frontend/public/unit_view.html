@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+		integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css" />
+	<link rel="stylesheet" href="css/style.css" />
+
+	<title>Gerenciamento de unidades</title>
+</head>
+
+<body>
+
+	<div>
+
+	</div>
+	<!--#originalmente ao lado a linha abaixo <main class="container"></main>   -->
+	<main class="container-fluid mt-4">
+		<h1 class="text-center my-5">Gerenciamento de Unidades</h1>
+		<div class="row justify-content-center">
+			<div class="col-auto mb-3">
+				<div class="card" style="width: 48rem;">
+					<div class="card-body">
+						<div class="card-header font-weight-bold text-center">
+							Unidades
+							<div class="float-right m-0">
+								<i class="fas fa-plus" id="createHostBtn" data-toggle="modal"
+									data-target="#hostFormModal" onclick="loadFormCreateHost()"></i>
+							</div>
+						</div>
+						<div class="card-body">
+							<table class="table table-hosts">
+								<thead>
+									<tr>
+										<th>Nome</th>
+										<th>Gerenciado por</th>
+										<th>Permitidos</th>
+										<th>Ações</th>
+										<th></th>
+									</tr>
+								</thead>
+								<tbody></tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-auto mb-3">
+				<div class="card" style="width: 18rem;">
+					<div class="card-body">
+						<div class="card-header font-weight-bold text-center">
+							Computadores catalogados
+							<div class="float-right m-0">
+								<i class="fas fa-plus" id="createHostBtn" data-toggle="modal"
+									data-target="#hostFormModal" onclick="loadFormCreateHost()"></i>
+							</div>
+						</div>
+						<div class="card-body">
+							<table class="table table-hosts">
+								<thead>
+									<tr>
+										<th>Nome</th>
+										<th>Ações</th>
+										<th></th>
+									</tr>
+								</thead>
+								<tbody></tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-auto mb-3">
+				<div class="card" style="width: 22rem;">
+					<div class="card-body">
+						<div class="card-header font-weight-bold text-center">
+							Computadores permitidos
+						</div>
+						<div class="card-body">
+							<table class="table table-hosts">
+								<thead>
+									<tr>
+										<th>Nome</th>
+										<th>Ações</th>
+										<th></th>
+									</tr>
+								</thead>
+								<tbody></tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<form id="hostForm">
+			<div class="modal fade" id="hostFormModal" tabindex="-1" aria-labelledby="hostFormLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="hostFormLabel"></h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<div class="form-group">
+								<label for="host-name">Nome</label>
+								<input type="text" class="form-control" id="host-name" name="name" />
+							</div>
+							<div class="form-group">
+								<label for="host-address">Endereço</label>
+								<input type="text" class="form-control" id="host-address" name="address" />
+							</div>
+							<div class="form-group">
+								<label for="host-mask">Máscara</label>
+								<input type="text" class="form-control" id="host-mask" name="mask" />
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">
+								Fechar
+							</button>
+							<button type="submit" class="btn btn-primary">
+								Confirmar
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+
+		<form id="formDeleteHost">
+			<div class="modal fade" id="deleteHostModal" tabindex="-1" aria-labelledby="deleteHostLabel"
+				aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="deleteHostLabel">
+								Excluir comida
+							</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							Deseja realmente excluir
+							<span id="modal-name-host"></span>?
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">
+								Fechar
+							</button>
+							<button type="submit" class="btn btn-primary" id="deleteHostBtn">
+								Excluir
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+			integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+			crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+			integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+			crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+			integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+			crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" type="module"></script>
+		<script src="js/index.js" type="module"></script>
+</body>
+
+</html>
