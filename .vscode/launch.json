@@ -6,7 +6,7 @@
 	"configurations": [
 		{
 			//!Lembrar de chamar o chrome com:
-			//google-chrome --remote-debugging-port=9222&
+			//*google-chrome --remote-debugging-port=9222&
 			//!Lembrar de subir o serviço com:
 			"name": "Launch Chrome",
 			"request": "launch",
@@ -24,13 +24,23 @@
 			],
 			"program": "${workspaceFolder}/backend/server.js",
 			"outFiles": [
-				"${workspaceFolder}/lab06/**/*.js"
+				"${workspaceFolder}/**/*.js"
 			]
-		}
+		},
+		//*Modo para nodemon ver : https://code.visualstudio.com/docs/nodejs/nodejs-debugging
+		{
+			"name": "Launch server.js via nodemon",
+			"type": "node",
+			"request": "launch",
+			"runtimeExecutable": "nodemon",
+			"program": "${workspaceFolder}/backend/server.js",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen"
+		  }
 	],
 	"compounds": [
 		{
-			//!Notas:
+			//*Notas para lançar Front+Back:
 			//https://docs.microsoft.com/en-us/azure/developer/javascript/how-to/with-visual-studio-code/install-run-debug-nodejs
 			"name": "Full-Stack",
 			"configurations": [

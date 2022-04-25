@@ -4,10 +4,10 @@ const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 
-const indexRouter = require("./routes/index");
-const unitRouter = require("./routes/unit");
-
 const app = express();
+
+const cors = require("cors");
+app.use(cors()); //cross origin *
 
 app.use(logger("dev"));
 app.use(express.json());
@@ -16,11 +16,15 @@ app.use(cookieParser());
 const p = path.resolve(__dirname, "../");
 app.use(express.static(p)); //! caminho comum para arquivos publicos e estaticos
 
+//cargas das rotas
+const indexRouter = require("./routes/index");
+const unitRouter = require("./routes/unit");
 app.use("/api", indexRouter);
 app.use("/unit", unitRouter);
+
 app.get("*", (req, res) => {
 	var options = {
-		root: "frontend/public",
+		root: "frontend/public",  //* definição da origem "public"
 	};
 	let fileName = req.url;
 	res.sendFile(fileName, options, (err) => {

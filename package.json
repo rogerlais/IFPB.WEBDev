@@ -1,5 +1,5 @@
 {
-  "name": "IFPB.WEBDev",
+  "name": "0.0.0",
   "version": "1.0.0",
   "description": "Repositório do aluno Rogerlais Andrade e Silva para a cadeira de Desenvolvimento WEB",
   "main": "index.js",
@@ -20,6 +20,7 @@
   "dependencies": {
     "bootstrap": "^5.0.1",
     "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
     "debug": "^4.3.1",
     "express": "^4.17.1",
     "http-errors": "^1.8.0",
